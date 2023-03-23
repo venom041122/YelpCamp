@@ -30,14 +30,14 @@ const { func } = require('joi');
 
 const MongoDBStore=require('connect-mongo')(session);
 
-//const db_url=process.env.DB_URL
+const db_url=process.env.DB_URL
 
-const db_url='mongodb://127.0.0.1:27017/yelp-camp';
-mongoose.connect(db_url, { useNewUrlParser: true,
-    useUnifiedTopology: true})
-
+// const db_url='mongodb://127.0.0.1:27017/yelp-camp';
 // mongoose.connect(db_url, { useNewUrlParser: true,
 //     useUnifiedTopology: true})
+
+mongoose.connect(db_url, { useNewUrlParser: true,
+    useUnifiedTopology: true})
 
 const db=mongoose.connection;
 db.on("error",console.error.bind(console,"connection error"));
